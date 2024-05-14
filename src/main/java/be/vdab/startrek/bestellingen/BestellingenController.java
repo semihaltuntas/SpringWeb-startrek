@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("werknemers")
 
 public class BestellingenController {
     private final BestellingService bestellingService;
@@ -13,12 +14,12 @@ public class BestellingenController {
     public BestellingenController(BestellingService bestellingService) {
         this.bestellingService = bestellingService;
     }
-    @GetMapping("werknemers/{id}/bestellingen")
+    @GetMapping("{id}/bestellingen")
     List<Bestelling> findByWerknemerId(@PathVariable long id){
         return bestellingService.findByWerknemerId(id);
     }
 
-    @PostMapping ("werknemers/{id}/bestellingen")
+    @PostMapping ("{id}/bestellingen")
     void bestel(@PathVariable long id, @RequestBody @Valid NieuweBestelling nieuweBestelling){
         bestellingService.create(id,nieuweBestelling);
     }

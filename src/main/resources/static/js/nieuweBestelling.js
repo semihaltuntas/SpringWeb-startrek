@@ -20,11 +20,12 @@ byId("bestel").onclick = async function () {
         bedragInput.focus();
         return;
     }
-// JavaScript object maken dat een pizza met naam en prijs voorstelt:
+// JavaScript object maken
     const bestelling = {
         omschrijving: omschrijvingInput.value,
         bedrag: Number(bedragInput.value)
     };
+    console.log(bestelling)
     bestel(bestelling);
 };
 
